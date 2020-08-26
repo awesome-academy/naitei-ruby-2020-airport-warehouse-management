@@ -66,8 +66,3 @@ ACCESSORIES = %w[wheels wings screws Gears]
 4.times do |n|
   Component.create!(name: ACCESSORIES.pop, amount: 1000)
 end
-
-History.create!(request_id: 1, component_id: 1, amount: 2, time: Time.zone.now, reason: "Bug in Gears")
-component = Component.find_by id: 1
-temp = component.amount - 2
-component.update_column :amount, temp

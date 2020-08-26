@@ -1,46 +1,50 @@
-<% if request.referrer.include? Settings.request.referrer.planes %>
-  <% if params[:status].eql? Settings.plane.status.ready %>
-    <h1><%= t(".change") %> <%= params[:plane_id] || @plane_id %> <%= t(".into_gara") %></h1>
-    <%= form_for @request do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <%= f.hidden_field :plane_id, value: params[:plane_id] || @plane_id %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.label :location_id, t(".location") %>
-      <%= f.collection_select :location_id, Location.location_false.gara_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
-      <%= f.label :reason, t("._reason") %>
-      <div class="field">
-        <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
-      </div>
-      <%= f.submit t(".submit"), class: "btn btn-primary" %>
+<div class="card-request" style="">  
+  <div class="card-request-body" style="">
+    <% if request.referrer.include? Settings.request.referrer.planes %>
+      <% if params[:status].eql? Settings.plane.status.ready %>
+        <h1><%= t(".change") %> <%= params[:plane_id] || @plane_id %> <%= t(".into_gara") %></h1>
+        <%= form_for @request do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <%= f.hidden_field :plane_id, value: params[:plane_id] || @plane_id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.label :location_id, t(".location") %>
+          <%= f.collection_select :location_id, Location.location_false.gara_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
+          <%= f.label :reason, t("._reason") %>
+          <div class="field">
+            <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
+          </div>
+          <%= f.submit t(".submit"), class: "btn btn-primary" %>
+        <% end %>
+      <% else %>
+        <h1><%= t(".change") %> <%= params[:plane_id] || @plane_id %> <%= t(".into_ready") %></h1>
+        <%= form_for @request do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <%= f.hidden_field :plane_id, value: params[:plane_id] || @plane_id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.label :location_id, t(".location") %>
+          <%= f.collection_select :location_id, Location.location_false.ready_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
+          <%= f.label :reason, t("._reason") %>
+        <div class="field">
+            <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
+          </div>
+          <%= f.submit t(".submit"), class: "btn btn-primary" %>
+        <% end %>
+      <% end %>
+    <% else %>
+      <h1><%= t "._create_request" %></h1>
+      <%= form_for @request do |f| %>
+        <%= render "shared/error_messages", object: f.object %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.label :plane_id, t(".plane_id") %>
+        <%= f.collection_select :plane_id, Plane.all, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
+        <%= f.label :location_id, t(".location") %>
+        <%= f.collection_select :location_id, Location.location_false.gara_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
+        <%= f.label :reason, t("._reason") %>
+        <div class="field">
+          <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
+        </div>
+        <%= f.submit t(".submit"), class: "btn btn-primary" %>
+      <% end %>
     <% end %>
-  <% else %>
-    <h1><%= t(".change") %> <%= params[:plane_id] || @plane_id %> <%= t(".into_ready") %></h1>
-    <%= form_for @request do |f| %>
-      <%= render "shared/error_messages", object: f.object %>
-      <%= f.hidden_field :plane_id, value: params[:plane_id] || @plane_id %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.label :location_id, t(".location") %>
-      <%= f.collection_select :location_id, Location.location_false.ready_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
-      <%= f.label :reason, t("._reason") %>
-    <div class="field">
-        <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
-      </div>
-      <%= f.submit t(".submit"), class: "btn btn-primary" %>
-    <% end %>
-  <% end %>
-<% elsif request.referrer.include? Settings.request.referrer.requests %>
-  <h1><%= t "._create_request" %></h1>
-  <%= form_for @request do |f| %>
-    <%= render "shared/error_messages", object: f.object %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.label :plane_id, t(".plane_id") %>
-    <%= f.collection_select :plane_id, Plane.all, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
-    <%= f.label :location_id, t(".location") %>
-    <%= f.collection_select :location_id, Location.location_false.gara_false, :id, :id_initial, {prompt: true}, {class: "form-control", required: "true"} %>
-    <%= f.label :reason, t("._reason") %>
-    <div class="field">
-      <%= f.text_area :reason, placeholder: t(".reason"), required: "true" %>
-    </div>
-    <%= f.submit t(".submit"), class: "btn btn-primary" %>
-  <% end %>
-<% end %>
+  </div>
+</div>

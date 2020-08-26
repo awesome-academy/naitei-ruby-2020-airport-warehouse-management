@@ -6,6 +6,8 @@ class Location < ApplicationRecord
   scope :gara_false, ->{where(warehouse_id: Settings.warehouse.gara, filled: false)}
   scope :location_false, ->{where(_not_exists(Request.where("requests.location_id = locations.id").process))}
   scope :ready_false, ->{where(warehouse_id: Settings.warehouse.ready, filled: false)}
+  scope :get_radar, ->{where(warehouse_id: Settings.warehouse.gara)}
+  scope :get_ready, ->{where(warehouse_id: Settings.warehouse.ready)}
 
   delegate :name, to: :warehouse, prefix: true, allow_nil: true
 

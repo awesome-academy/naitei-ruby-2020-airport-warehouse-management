@@ -25,6 +25,7 @@ avatar :
 pagination:
   default_page: 1
   user_page: 15
+  localtion_page: 25
 validate:
   user:
     password_minlength: 6

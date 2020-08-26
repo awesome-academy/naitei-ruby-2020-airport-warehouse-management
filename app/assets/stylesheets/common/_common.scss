@@ -257,3 +257,171 @@ input {
 .badge-employee{
   background-color: $primary
 }
+/*Plane table*/
+.table-content{
+  margin: 18px;
+}
+.section-location{
+  padding: 18px;
+  border-color: $border-color;
+  border-style: solid;
+  border-width:1px;
+  .table-content {
+    border-color: $border-color;
+    border-style: solid;
+    border-width:1px;
+    background-color: $white-darker;
+  }
+  .empty {
+    .table-item-status {
+      background-color: $green-light;
+    }
+  }
+  .filled {
+    .table-item-status {
+      background-color: $red-light;
+    }
+  }
+  .table-item-header {
+    min-height: 30px;
+    position: relative;
+    div {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  }
+  .table-item-content {
+    .table-item-status {
+      min-height: 35px;
+      border-top-color: $border-color;
+      border-top-style: solid;
+      border-top-width:1px;
+      border-right-color: $border-color;
+      border-right-style: solid;
+      border-right-width:1px;
+      color: $white;
+      text-align: center;
+      padding: auto;
+      position: relative;
+      div {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+    }
+    .table-item-action{
+      min-height: 35px;
+      border-top-color: $border-color;
+      border-top-style: solid;
+      border-top-width: 1px;
+      background-color: $white;
+    }
+    i {
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      max-width: 20px;
+    }
+  }
+}
+/*switch*/
+.button-switch{
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 130px;
+    height: 34px;
+  }
+  
+  .switch input {display:none;}
+  
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #26495c;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #c66b3d;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(95px);
+    -ms-transform: translateX(95px);
+    transform: translateX(95px);
+  }
+  
+  /*------ ADDED CSS ---------*/
+  .repair
+  {
+    display: none;
+  }
+  
+  .repair, .ready
+  {
+    color: white;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    font-size: 10px;
+  }
+  
+  input:checked+ .slider .repair
+  {display: block;}
+  
+  input:checked + .slider .ready
+  {display: none;}
+  
+  /*--------- END --------*/
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;}
+}
+
+/*request_card*/
+.card-request{
+  max-width: 50%;
+  margin: 0 auto;
+  border-color: $border-color;
+  border-style: solid;
+  border-width:1px;
+  padding: 30px;
+}
