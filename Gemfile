@@ -17,6 +17,7 @@ gem "autoprefixer-rails"
 gem "bootsnap", ">= 1.4.2", require: false
 gem "bootstrap4-kaminari-views", "~> 1.0.1"
 gem "bootstrap-sass", "3.4.1"
+gem "ckeditor", github: "galetahub/ckeditor"
 gem "config"
 gem "jquery-rails", "4.3.1"
 gem "kaminari", "~> 1.2.1"
@@ -25,6 +26,9 @@ gem "toastr-rails"
 
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
+  gem "database_cleaner-active_record"
+  gem "factory_bot_rails"
+  gem "pry-rails", "~> 0.3.9"
   gem "rspec-rails"
 end
 
@@ -38,6 +42,8 @@ end
 group :test do
   gem "capybara", ">= 2.15"
   gem "selenium-webdriver"
+  gem "shoulda-matchers"
+  gem "simplecov", require: false
   gem "webdrivers"
 end
 
