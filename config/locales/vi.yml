@@ -49,6 +49,7 @@ vi:
       click_create_request: Click_to_create_request
       no_request: No request
     index:
+      search: Tìm kiếm
       title: Danh sách máy bay
       add_success: Tạo yêu cầu thành công!
       edit_success: Sửa yêu cầu thành công
@@ -87,6 +88,7 @@ vi:
       status: Trạng thái
   requests:
     index:
+      search: Tìm kiếm
       title: Danh sách yêu cầu
       user_title: Danh sách yêu cầu của tôi
       requester: Người yêu cầu
@@ -164,6 +166,11 @@ vi:
       not_found_request: request không tìm thấy
   users:
     sign_in: Đăng nhập
+    edit:
+      edit_title: Sửa hồ sơ
+      heading: Thay đổi hồ sơ
+      edit_create: Thay đổi
+      change_link: Link thay đổi
     new:
       title: Tạo tài khoản
       content: Đây là trang đăng kí người dùng mới
@@ -180,6 +187,7 @@ vi:
       profile_update_failed: Không cập nhật được trang cá nhân!
       user_not_found: Không tìm thấy người dùng!
     index:
+      search: Tìm kiếm
       title: Danh sách người dùng
       userID: User ID
       name: Tên
@@ -223,6 +231,7 @@ vi:
       location_name:
         ready: Ready-01
         gara: Gara-01
+      search: Tìm kiếm
   icon:
     booking:
       empty_html: <i class="far fa-calendar-plus fa-2x"></i>

@@ -1,11 +1,36 @@
 <% provide :title, @user.name %>
-<div class="row">
-  <aside class="col-md-4">
-    <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
-        <%= @user.name %>
-      </h1>
-    </section>
-  </aside>
+<div class="request-show">
+  <div class="request-show-header">
+    <h1><%= t ".see-profile" %></h1>
+  </div>
+  <div class="request-show-body">
+    <h4 class="request-show-item-title">
+      <span><b ><%= t ".name" %>:</b></span>
+      <span class="request-show-content"><%= @user.name %></span>
+    </h4><hr>
+    <h4 class="request-show-item-title">
+      <span><b ><%= t ".email" %>:</b></span>
+      <span class="request-show-content"><%= @user.email %></span>
+    </h4><hr>
+    <h4 class="request-show-item-title">
+      <b><%= t ".activated" %>:</b>
+      <span class="request-show-content"><%= @user.activated %></span>
+    </h4><hr>
+    <h4 class="request-show-item-title">
+      <b><%= t ".role" %>:</b>
+      <% if @user.admin? %>
+        <span class="badge badge-admin request-show-content"><%= t ".admin" %></span>
+      <% elsif @user.manager? %>
+        <span class="badge badge-manager request-show-content"><%= t ".manager" %></span>
+      <% else %>
+        <span class="badge badge-employee request-show-content"><%= t ".employee" %></span>
+      <% end %>
+    </h4><hr>
+    <h4 class="request-show-item-title">
+      <b><%= t ".warehouse" %>:</b>
+      <span class="request-show-content"><%= @user.warehouse.name %></span>
+    </h4><hr>
+  </div>
+  <div class="request-show-button">
+  </div>
 </div>

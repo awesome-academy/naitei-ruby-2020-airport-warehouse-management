@@ -77,7 +77,7 @@ en:
       processing: processing
       accepted: accepted
       rejected: rejected
-    search: search
+      search: search
     new:
       plane_form: Create plane
       code: Code
